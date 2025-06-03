@@ -17,3 +17,21 @@ I created the data and rendering system. Each Wheel has position, rotation, radi
 
 1. Clone the repo
 2. Open `index.html` in browser
+
+
+# Rotation Animation – Added by Katherine
+
+I implemented the rotation functionality (part B) for each wheel object. 
+
+## My contribution:
+- Adding `angle` and `rotationSpeed` to each `Wheel` instance in `wheel.js`
+- Creating an `update()` method to increment the angle on each frame
+- Modifying the `draw()` loop in `sketch.js` to call `update()` and enable continuous animation
+
+## How to adjust the rotation speed of each wheel:
+```js
+// Fixed speed for all wheels (same rotation speed)
+this.rotationSpeed = 0.5;
+
+// Random speed for variation between wheels
+this.rotationSpeed = random(0.2, 1);

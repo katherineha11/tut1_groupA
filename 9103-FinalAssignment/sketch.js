@@ -22,12 +22,19 @@ function setup() {
   }
 
   // Only draw once
-  noLoop();
+  // noLoop();
+  // Kathie: I removed noLoop() so that draw() can run continuously for animation
 }
 
 function draw() {
+  // Clear the canvas each frame to redraw background and rotating wheels
+  background('#2E5F72'); 
+
+  // Call update and display for each wheel
+  // update() is newly added to apply rotation over time
   for (let wheel of wheels) {
-    wheel.display();
+    wheel.update();    // Updates rotation angle
+    wheel.display();   // Draws the wheel at current rotation
   }
 }
 

@@ -4,6 +4,14 @@ class Wheel {
       this.y = y;
       this.r = baseRadius;
 
+    // Added: rotation properties for animation
+           // - To make all wheels spin at the same speed, assign a fixed number to this.rotateSpeed like 0.5
+            // - To give each wheel a unique speed, use random(min, max)
+    // For this project, I made each wheel has its own initial angle and rotation speed
+    this.angle = random(360);
+    this.rotationSpeed = random(0.2, 1); 
+          
+
       // Center concentric circles with random colors
         this.colors = Array.from({ length: 7 }, () => randomColor());
 
@@ -16,12 +24,22 @@ class Wheel {
         this.finalCircleColor = randomColor();
         this.curvedLineColor = randomColor();
     }
-
   
+
+     // Added: update method to increase angle each frame
+  update() {
+    this.angle += this.rotationSpeed;
+  }
+  
+
     display() {
       push();
       translate(this.x, this.y);
+
+      // Added: apply current rotation to the entire wheel
+      rotate(this.angle);
       angleMode(DEGREES);
+      
   
       // Draw central concentric circles
       noStroke();
