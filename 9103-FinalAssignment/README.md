@@ -36,10 +36,10 @@ this.rotationSpeed = 0.5;
 // Random speed for variation between wheels
 this.rotationSpeed = random(0.2, 1);
 
-# Part D.Collision Response (Neighbor Displacement)
+## Part D. Collision Response (Neighbor Displacement)
 
 **Files**  
-- `sketch.js` – implements the main loop and collision logic  
+- `sketch.js`: implements the three‐phase main loop and collision logic  
 
 **My Contribution**  
 - Designed a **three‐phase `draw()` loop**:  
@@ -47,7 +47,7 @@ this.rotationSpeed = random(0.2, 1);
   2. **Resolve collisions** using each wheel’s _outermost_ ring radius to push neighbors in a ripple effect  
   3. **Display** all wheels at their final positions and sizes  
 - Wrote `resolveCollisions()` to:  
-  - Compute the _outer ring radius_ for the hovered wheel (`outerA`) and each neighbor (`outerB`)  
+  - Compute the _outer‐ring radius_ for the hovered wheel (`outerA`) and each neighbor (`outerB`)  
   - Compare their center‐to‐center distance with `outerA + outerB`  
   - Push neighbors apart by half the overlap along the normalized direction vector (× 1.1 for a livelier effect)  
 
