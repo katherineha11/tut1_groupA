@@ -36,7 +36,7 @@ this.rotationSpeed = 0.5;
 // Random speed for variation between wheels
 this.rotationSpeed = random(0.2, 1);
 
-## Part D.Collision Response (Neighbor Displacement)
+# Part D.Collision Response (Neighbor Displacement)
 
 **Files**  
 - `sketch.js` – implements the main loop and collision logic  
