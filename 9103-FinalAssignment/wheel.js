@@ -41,7 +41,7 @@ class Wheel {
     }
 
     // Smoothly interpolate radius using lerp()
-    this.radius = lerp(this.radius, this.targetRadius, 0.1);
+    this.radius = lerp(this.radius, this.targetRadius, 0.4);
   }
 
   display() {
