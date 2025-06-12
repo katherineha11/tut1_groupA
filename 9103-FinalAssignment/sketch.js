@@ -1,11 +1,12 @@
 let wheels = [];
-let baseRadius = 65; // Smaller circles, so they can sparsely distribute yet still collide
 
+//Making the radius slightly larger will make the effect of resolveCollisions more noticeable.
+let baseRadius = 65;
 function setup() {
   createCanvas(800, 800);
   ellipseMode(CENTER);
 
-  // Keep manually specified positions
+  // Keep specified positions
   let positions = [
     { x:  90, y: 100 }, { x: 330, y:  30 }, { x: 570, y: -40 },
     { x:  50, y: 340 }, { x: 280, y: 270 }, { x: 510, y: 200 },
@@ -28,7 +29,7 @@ function draw() {
     w.update();
   }
 
-  // 2) Use outer ring for collision detection and push neighbors
+  // 2) Use outer ring for collision detection and push neighbors.
   resolveCollisions();
 
   // 3) Draw
@@ -38,6 +39,8 @@ function draw() {
 }
 
 // Only the hovered wheel will use its outer ring to push surrounding wheels
+// This technique (collision-based displacement using target buffers) was not covered in class
+// Adapted from a p5.js community example: https://editor.p5js.org/codingtrain/sketches/CollisionRepulsionExample
 function resolveCollisions() {
   const dotRings    = 6;   // Consistent with display() in wheel.js
   const ringSpacing = 13;
